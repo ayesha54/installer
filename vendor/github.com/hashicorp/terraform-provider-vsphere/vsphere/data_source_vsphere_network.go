@@ -52,7 +52,7 @@ func dataSourceVSphereNetworkRead(d *schema.ResourceData, meta interface{}) erro
 	}
 	net, err := network.FromNameAndDVSUuid(client, name, dc, dvSwitchUuid)
 	if err != nil {
-		return fmt.Errorf("error fetching network: %s", err)
+		return fmt.Errorf("error fetching network: err, client, name, dc, dvSwitchUuid %s %v %v %v %v ", err, client, name, dc, dvSwitchUuid)
 	}
 
 	d.SetId(net.Reference().Value)
